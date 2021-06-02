@@ -42,7 +42,10 @@ def parse_text_into_sentences(text: str, tokenizer: Callable[[str], List[str]]) 
         sentence = Sentence(index, candidate_stripped, bow)
         sentences.append(sentence)
         index += 1
-
+        
+        #print('\nbow', bow)
+        #print('sentence', sentence)
+    
     # return
     return sentences
 
@@ -64,6 +67,7 @@ def build_sentence_graph(sentences: List[Sentence], tolerance: float = 0.05) -> 
 
     # add nodes
     graph.add_nodes_from(sentences)
+    print('graph', graph.__dict__)
 
     # add edges
     for sentence1, sentence2 in combinations(sentences, 2):

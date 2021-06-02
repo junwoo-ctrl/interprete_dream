@@ -31,7 +31,7 @@ class TextRank:
 
         # build graph
         graph: Graph = build_sentence_graph(sentences, tolerance=self.tolerance)
-
+        
         # run pagerank
         pageranks: Dict[Sentence, float] = pagerank(graph, weight='weight')
 
